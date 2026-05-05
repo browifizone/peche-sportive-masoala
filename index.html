@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pêche Sportive Masoala — Ambodilaitra, Cap Masoala</title>
+  <meta name="description" content="Pêche Sportive Masoala propose une expérience de pêche sportive à Ambodilaitra, au Cap Masoala : sorties en mer, accompagnement local, nature sauvage et séjours sur mesure."/>
+  <meta name="keywords" content="pêche sportive Masoala, pêche Madagascar, Cap Masoala, Ambodilaitra, pêche en mer Madagascar, baie d'Antongil"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root{
+      --deep:#061421;
+      --navy:#0a1f33;
+      --navy-2:#0f314d;
+      --ocean:#0d6f8d;
+      --ocean-2:#1596b4;
+      --aqua:#9fe4ef;
+      --sand:#d8b36d;
+      --sand-light:#f1dcaa;
+      --cream:#f7f4ed;
+      --cream-2:#ede6d7;
+      --white:#ffffff;
+      --text:#172633;
+      --muted:#657887;
+      --border:rgba(216,179,109,.28);
+      --shadow:0 26px 80px rgba(6,20,33,.16);
+      --radius:20px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;line-height:1.65}
+    a{text-decoration:none;color:inherit}
+    img{display:block;width:100%;height:100%;object-fit:cover}
+
+    /* Inter-sites bar */
+    .top-sites-bar{
+      position:relative;z-index:210;background:linear-gradient(90deg,#061421,#0a1f33,#061421);
+      color:rgba(255,255,255,.72);display:flex;justify-content:center;align-items:center;gap:1.5rem;
+      min-height:34px;padding:.45rem 1rem;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;border-bottom:1px solid rgba(216,179,109,.18)
+    }
+    .top-sites-bar a{color:rgba(255,255,255,.7);transition:.2s;white-space:nowrap}
+    .top-sites-bar a:hover,.top-sites-bar a.active{color:var(--sand-light)}
+
+    /* NAV */
+    nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1rem 4rem;background:rgba(6,20,33,.96);backdrop-filter:blur(14px);box-shadow:0 10px 32px rgba(6,20,33,.18)}
+    .nav-logo{display:flex;align-items:center;gap:.8rem}
+    .nav-logo-icon{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--sand),var(--sand-light));font-family:'Cormorant Garamond',serif;font-weight:600;color:var(--deep);font-size:1.08rem;box-shadow:0 10px 24px rgba(216,179,109,.22)}
+    .nav-logo-text strong{display:block;font-family:'Cormorant Garamond',serif;color:#fff;font-size:1.18rem;font-weight:600;letter-spacing:.04em}
+    .nav-logo-text span{display:block;font-size:.62rem;letter-spacing:.23em;text-transform:uppercase;color:var(--sand-light);margin-top:-2px}
+    .nav-links{display:flex;align-items:center;gap:2rem}
+    .nav-links a{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.78);font-weight:600;position:relative;transition:.2s}
+    .nav-links a::after{content:'';position:absolute;left:0;bottom:-5px;width:0;height:1px;background:var(--sand);transition:.25s}
+    .nav-links a:hover,.nav-links a.active{color:var(--sand-light)}
+    .nav-links a:hover::after,.nav-links a.active::after{width:100%}
+    .nav-cta{background:linear-gradient(135deg,var(--sand),var(--sand-light));color:var(--deep);padding:.72rem 1.55rem;border-radius:999px;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;transition:.2s;box-shadow:0 12px 28px rgba(216,179,109,.22)}
+    .nav-cta:hover{transform:translateY(-2px);box-shadow:0 16px 36px rgba(216,179,109,.32)}
+    .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:4px}
+    .hamburger span{width:24px;height:2px;background:#fff;border-radius:3px;display:block;transition:.3s}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .hamburger.open span:nth-child(2){opacity:0}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .mobile-menu{display:none;position:fixed;inset:0;background:radial-gradient(circle at 30% 15%,rgba(216,179,109,.13),transparent 34%),linear-gradient(145deg,#061421,#0a1f33);z-index:300;flex-direction:column;align-items:center;justify-content:center;gap:2rem;text-align:center;padding:2rem}
+    .mobile-menu.open{display:flex}
+    .mobile-menu a{font-family:'Cormorant Garamond',serif;font-size:2rem;color:#fff}
+    .mobile-menu a:hover,.mobile-menu a.active{color:var(--sand-light)}
+    .mobile-menu .mob-cta{font-family:'Jost',sans-serif;background:var(--sand);color:var(--deep);padding:.85rem 2.2rem;border-radius:999px;font-size:.74rem;letter-spacing:.17em;text-transform:uppercase;font-weight:700}
+
+    /* HERO */
+    .hero{position:relative;min-height:92vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--deep)}
+    .hero::before{content:'';position:absolute;inset:0;background:url('assets/peche-masoala-hero.jpg') center/cover no-repeat;opacity:.36;filter:saturate(1.08) contrast(1.06)}
+    .hero::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 22%,rgba(159,228,239,.14),transparent 34%),linear-gradient(180deg,rgba(6,20,33,.35),rgba(6,20,33,.86) 72%,#061421)}
+    .hero-word{position:absolute;bottom:-2.4rem;left:50%;transform:translateX(-50%);font-family:'Cormorant Garamond',serif;font-size:clamp(4rem,18vw,15rem);font-weight:600;letter-spacing:.08em;color:rgba(255,255,255,.04);white-space:nowrap;z-index:1}
+    .hero-content{position:relative;z-index:2;text-align:center;max-width:980px;padding:7rem 2rem 5rem;animation:fadeUp .9s ease both}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+    .eyebrow{display:inline-flex;align-items:center;gap:.7rem;color:var(--sand-light);font-size:.62rem;letter-spacing:.34em;text-transform:uppercase;font-weight:600;margin-bottom:1.4rem}
+    .eyebrow::before,.eyebrow::after{content:'';width:34px;height:1px;background:var(--sand);opacity:.7}
+    h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3.4rem,8vw,6.6rem);font-weight:300;line-height:1.02;color:white;margin-bottom:1.2rem}
+    h1 em{font-style:italic;color:var(--sand-light)}
+    .hero-sub{font-family:'Cormorant Garamond',serif;font-size:1.42rem;font-style:italic;color:rgba(255,255,255,.74);max-width:760px;margin:0 auto 2.6rem;line-height:1.65}
+    .hero-actions{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+    .btn-primary,.btn-outline,.btn-dark{display:inline-flex;align-items:center;justify-content:center;padding:1rem 2.35rem;border-radius:999px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;transition:.25s;min-height:48px}
+    .btn-primary{background:linear-gradient(135deg,var(--sand),var(--sand-light));color:var(--deep);box-shadow:0 14px 34px rgba(216,179,109,.25)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 42px rgba(216,179,109,.34)}
+    .btn-outline{border:1px solid rgba(255,255,255,.42);color:#fff;background:rgba(255,255,255,.04)}
+    .btn-outline:hover{border-color:var(--sand);color:var(--sand-light);transform:translateY(-2px)}
+    .btn-dark{background:var(--deep);color:#fff}.btn-dark:hover{background:var(--navy)}
+
+    /* Commons */
+    .section{padding:6rem 4rem}.section-inner{max-width:1200px;margin:auto}
+    .section-label{font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;color:var(--ocean);font-weight:700;margin-bottom:1rem;display:flex;align-items:center;gap:.8rem}.section-label::after{content:'';width:44px;height:1px;background:var(--sand);opacity:.7}
+    .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4.4vw,3.5rem);font-weight:300;line-height:1.13;color:var(--deep);margin-bottom:1rem}.section-title em{font-style:italic;color:var(--ocean)}
+    .section-sub{font-size:.94rem;color:var(--muted);line-height:1.85;max-width:650px}
+
+    /* Stats */
+    .stats-strip{background:linear-gradient(135deg,var(--deep),var(--navy));border-top:2px solid var(--sand);display:grid;grid-template-columns:repeat(4,1fr);padding:2.4rem 4rem;color:white}
+    .stat{text-align:center;padding:1.3rem;border-right:1px solid rgba(216,179,109,.18)}.stat:last-child{border-right:0}
+    .stat-num{font-family:'Cormorant Garamond',serif;font-size:2.55rem;color:var(--sand-light);font-weight:300;line-height:1}.stat-label{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.52);margin-top:.55rem}
+
+    /* Intro */
+    .intro{background:var(--cream)}.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}.intro-img{height:540px;border-radius:var(--radius);overflow:hidden;background:linear-gradient(135deg,var(--deep),var(--ocean));box-shadow:var(--shadow);position:relative}.intro-img::after{content:'Image à remplacer';position:absolute;left:1.2rem;bottom:1.2rem;background:rgba(6,20,33,.78);color:var(--sand-light);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;padding:.55rem .9rem;border-radius:999px}
+    .intro-p{font-size:.96rem;color:var(--muted);line-height:1.9;margin-bottom:1rem}.quote-box{margin-top:2rem;background:white;border-left:3px solid var(--sand);padding:1.6rem 1.8rem;border-radius:0 var(--radius) var(--radius) 0;box-shadow:0 14px 46px rgba(6,20,33,.08)}.quote-box p{font-family:'Cormorant Garamond',serif;font-size:1.28rem;font-style:italic;color:var(--deep);line-height:1.55}
+
+    /* Experience cards */
+    .experience{background:var(--cream-2)}.cards-head{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;margin-bottom:3rem}.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}.card{background:white;border-top:2px solid var(--sand);border-radius:0 0 var(--radius) var(--radius);padding:2.2rem;box-shadow:0 16px 52px rgba(6,20,33,.08);transition:.25s;min-height:285px}.card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}.card-icon{font-size:2rem;margin-bottom:1rem}.card-title{font-family:'Cormorant Garamond',serif;font-size:1.62rem;color:var(--deep);margin-bottom:.8rem}.card-text{font-size:.88rem;color:var(--muted);line-height:1.78}.card-note{font-size:.66rem;letter-spacing:.17em;text-transform:uppercase;color:var(--ocean);font-weight:700;margin-top:1.2rem}
+
+    /* Dark feature */
+    .dark-feature{background:var(--deep);position:relative;overflow:hidden;color:white}.dark-feature::before{content:'CAP MASOALA';position:absolute;right:-2rem;top:50%;transform:translateY(-50%) rotate(90deg);font-family:'Cormorant Garamond',serif;font-size:9rem;color:rgba(255,255,255,.035);white-space:nowrap}.dark-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:5rem;align-items:center;position:relative;z-index:1}.dark-feature .section-title{color:white}.dark-feature .section-sub{color:rgba(255,255,255,.6)}.zone-list{display:flex;flex-direction:column;gap:1rem;margin-top:2.2rem}.zone{display:grid;grid-template-columns:58px 1fr;gap:1rem;align-items:start;padding:1.1rem 0;border-bottom:1px solid rgba(216,179,109,.14)}.zone-icon{width:48px;height:48px;border:1px solid rgba(216,179,109,.32);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--sand-light);font-size:1.2rem}.zone h3{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:400;margin-bottom:.25rem;color:#fff}.zone p{font-size:.86rem;color:rgba(255,255,255,.56);line-height:1.7}.dark-img{height:520px;border-radius:var(--radius);overflow:hidden;background:linear-gradient(135deg,var(--navy),var(--ocean));box-shadow:0 30px 80px rgba(0,0,0,.25);position:relative}.dark-img::after{content:'Photo bateau / pêche à intégrer';position:absolute;left:1.2rem;bottom:1.2rem;background:rgba(6,20,33,.72);color:var(--sand-light);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;padding:.55rem .9rem;border-radius:999px}
+
+    /* Species */
+    .species{background:var(--cream)}.species-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:3rem}.fish{background:white;border:1px solid rgba(216,179,109,.25);border-radius:var(--radius);padding:1.5rem;transition:.22s}.fish:hover{transform:translateY(-4px);box-shadow:0 16px 46px rgba(6,20,33,.08)}.fish-emoji{font-size:1.8rem;margin-bottom:.6rem}.fish-name{font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:var(--deep);margin-bottom:.35rem}.fish-desc{font-size:.82rem;color:var(--muted);line-height:1.65}.fish-tag{display:inline-block;margin-top:.9rem;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ocean);font-weight:700}
+
+    /* Journey */
+    .journey{background:linear-gradient(180deg,#fff,var(--cream))}.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(216,179,109,.25);margin-top:3rem;border-radius:var(--radius);overflow:hidden}.step{background:white;padding:2rem;min-height:230px}.step-num{font-family:'Cormorant Garamond',serif;font-size:2.3rem;color:var(--sand);line-height:1}.step h3{font-family:'Cormorant Garamond',serif;font-size:1.42rem;color:var(--deep);font-weight:400;margin:.6rem 0}.step p{font-size:.84rem;color:var(--muted);line-height:1.7}
+
+    /* Gallery */
+    .gallery{background:var(--cream-2)}.gallery-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:240px 220px;gap:.8rem;margin-top:3rem}.g-item{border-radius:var(--radius);overflow:hidden;background:linear-gradient(135deg,var(--deep),var(--ocean));position:relative;box-shadow:0 16px 46px rgba(6,20,33,.08)}.g-item:first-child{grid-row:1/3}.g-item::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(6,20,33,.5));z-index:1}.g-caption{position:absolute;left:1rem;bottom:1rem;z-index:2;color:white}.g-caption strong{display:block;font-family:'Cormorant Garamond',serif;font-size:1.15rem}.g-caption span{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sand-light)}
+
+    /* Practical */
+    .practical{background:white}.practical-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem}.info-panel{background:var(--cream);border:1px solid rgba(216,179,109,.25);border-radius:var(--radius);padding:2rem}.info-panel h3{font-family:'Cormorant Garamond',serif;font-size:1.55rem;color:var(--deep);margin-bottom:1rem}.check-list{display:flex;flex-direction:column;gap:.8rem}.check{display:flex;gap:.75rem;align-items:flex-start;color:var(--muted);font-size:.88rem;line-height:1.65}.check::before{content:'✓';color:var(--ocean);font-weight:700;margin-top:.05rem}
+
+    /* Other sites */
+    .ecosystem{background:var(--deep);color:white}.ecosystem .section-title{color:white}.ecosystem .section-sub{color:rgba(255,255,255,.58)}.site-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:3rem}.site-card{background:rgba(255,255,255,.06);border:1px solid rgba(216,179,109,.18);border-radius:var(--radius);overflow:hidden;transition:.25s}.site-card:hover{transform:translateY(-5px);background:rgba(255,255,255,.09);border-color:rgba(216,179,109,.35)}.site-img{height:190px;background:linear-gradient(135deg,var(--navy),var(--ocean))}.site-body{padding:1.6rem}.site-label{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--sand-light);font-weight:700;margin-bottom:.45rem}.site-name{font-family:'Cormorant Garamond',serif;font-size:1.45rem;color:#fff;margin-bottom:.45rem}.site-desc{font-size:.84rem;color:rgba(255,255,255,.56);line-height:1.65;margin-bottom:1rem}.site-link{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sand-light);font-weight:700}
+
+    /* FAQ CTA */
+    .faq{background:var(--cream)}.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:3rem}.faq-item{background:white;border:1px solid rgba(216,179,109,.22);border-radius:var(--radius);padding:1.6rem}.faq-item h3{font-family:'Cormorant Garamond',serif;font-size:1.28rem;color:var(--deep);font-weight:400;margin-bottom:.6rem}.faq-item p{font-size:.86rem;color:var(--muted);line-height:1.7}.cta{background:linear-gradient(135deg,var(--ocean),var(--navy));padding:5rem 4rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;color:white}.cta h2{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:300;line-height:1.15}.cta h2 em{color:var(--sand-light);font-style:italic}.cta p{color:rgba(255,255,255,.62);font-size:.9rem;margin-top:.75rem}.cta-actions{display:flex;gap:1rem;flex-wrap:wrap;flex-shrink:0}
+
+    /* Footer */
+    footer{background:#04101b;color:white}.ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding:4rem 4rem 2.8rem;border-bottom:1px solid rgba(216,179,109,.13)}.ft-brand-name{font-family:'Cormorant Garamond',serif;font-size:1.65rem;color:#fff;margin-bottom:.4rem}.ft-brand-name span{color:var(--sand-light)}.ft-loc{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.36);margin-bottom:1rem}.ft-desc{font-size:.84rem;color:rgba(255,255,255,.5);line-height:1.75;max-width:330px}.ft-col-title{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--sand-light);font-weight:700;margin-bottom:1rem}.ft-links{display:flex;flex-direction:column;gap:.6rem}.ft-links a{font-size:.84rem;color:rgba(255,255,255,.48);transition:.2s}.ft-links a:hover{color:var(--sand-light)}.ft-bottom{padding:1.5rem 4rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;color:rgba(255,255,255,.28);font-size:.72rem}.ft-bottom a{color:rgba(255,255,255,.35)}
+
+    @media(max-width:1000px){
+      nav{padding:1rem 1.4rem}.nav-links,.nav-cta{display:none}.hamburger{display:flex}.top-sites-bar{overflow-x:auto;justify-content:flex-start;gap:1rem;padding-left:1rem}.section{padding:4rem 1.4rem}.stats-strip{grid-template-columns:1fr 1fr;padding:1.5rem 1rem}.stat:nth-child(2){border-right:0}.intro-grid,.dark-grid,.practical-grid{grid-template-columns:1fr;gap:2.5rem}.cards-head{flex-direction:column;align-items:flex-start}.cards-grid,.species-grid,.site-grid,.faq-grid{grid-template-columns:1fr}.timeline{grid-template-columns:1fr 1fr}.gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}.g-item,.g-item:first-child{grid-row:auto;min-height:210px}.g-item:first-child{grid-column:1/3}.cta{flex-direction:column;align-items:flex-start;padding:4rem 1.4rem}.cta-actions,.cta-actions a{width:100%}.ft-top{grid-template-columns:1fr;padding:3rem 1.4rem 2rem}.ft-bottom{padding:1.4rem;flex-direction:column}.intro-img,.dark-img{height:380px}
+    }
+    @media(max-width:560px){
+      .top-sites-bar{font-size:.56rem}.hero{min-height:86vh}h1{font-size:3.1rem}.hero-sub{font-size:1.18rem}.hero-actions a{width:100%}.stats-strip,.timeline,.gallery-grid{grid-template-columns:1fr}.stat{border-right:0;border-bottom:1px solid rgba(216,179,109,.14)}.stat:last-child{border-bottom:0}.g-item:first-child{grid-column:auto}.intro-img,.dark-img{height:300px}.cta h2{font-size:2.2rem}.section-title{font-size:2.15rem}.ft-bottom{text-align:left}.mobile-menu a{font-size:1.65rem}
+    }
+  </style>
+</head>
+<body>
+  <div class="top-sites-bar" aria-label="Navigation entre sites Masoala Experiences">
+    <a href="https://manga-beach-hotel.netlify.app/" target="_blank" rel="noopener">🏨 Manga Beach</a>
+    <a href="https://paradise-valley-ambanizana.netlify.app/" target="_blank" rel="noopener">🌿 Paradise Valley</a>
+    <a href="index.html" class="active">🎣 Pêche Masoala</a>
+    <a href="https://masoala-experiences.netlify.app/" target="_blank" rel="noopener">◉ Masoala Experiences</a>
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html" class="active">Accueil</a>
+    <a href="#experience">Expérience</a>
+    <a href="#zones">Zones</a>
+    <a href="#organisation">Organisation</a>
+    <a href="#contact" class="mob-cta">Demander une sortie</a>
+  </div>
+
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo" aria-label="Pêche Sportive Masoala">
+      <div class="nav-logo-icon">PM</div>
+      <div class="nav-logo-text">
+        <strong>Pêche Sportive</strong>
+        <span>Masoala</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Accueil</a>
+      <a href="#experience">Expérience</a>
+      <a href="#zones">Zones</a>
+      <a href="#organisation">Organisation</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="nav-cta">Demander une sortie</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-word">MASOALA</div>
+    <div class="hero-content">
+      <div class="eyebrow">Ambodilaitra · Cap Masoala</div>
+      <h1>Pêche Sportive<br><em>Masoala</em></h1>
+      <p class="hero-sub">Une expérience en mer entre adrénaline, nature sauvage et accompagnement local au large du Cap Masoala.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Préparer une sortie</a>
+        <a href="#experience" class="btn-outline">Découvrir l’expérience</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="stats-strip" aria-label="Points forts">
+    <div class="stat"><div class="stat-num">Cap</div><div class="stat-label">Masoala</div></div>
+    <div class="stat"><div class="stat-num">Mer</div><div class="stat-label">Sorties sportives</div></div>
+    <div class="stat"><div class="stat-num">Guide</div><div class="stat-label">Accompagnement local</div></div>
+    <div class="stat"><div class="stat-num">Sur</div><div class="stat-label">Demande</div></div>
+  </section>
+
+  <section class="section intro" id="experience">
+    <div class="section-inner intro-grid">
+      <div class="intro-img">
+        <img src="assets/peche-masoala-intro.jpg" alt="Sortie de pêche sportive au Cap Masoala" onerror="this.style.display='none'">
+      </div>
+      <div>
+        <div class="section-label">L’expérience</div>
+        <h2 class="section-title">La pêche au cœur d’un territoire <em>sauvage</em></h2>
+        <p class="intro-p">Pêche Sportive Masoala est pensée comme une expérience immersive : départ en mer, approche des zones de pêche, temps d’observation, accompagnement et adaptation selon la météo, la saison et le niveau des participants.</p>
+        <p class="intro-p">La page est volontairement prête à compléter : durée exacte, type de bateau, espèces confirmées, prix, capacité et formules pourront être ajoutés dès que les informations seront validées.</p>
+        <div class="quote-box"><p>“Une sortie pensée pour les voyageurs qui veulent vivre le Cap Masoala autrement : plus proche de la mer, plus proche du terrain.”</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section experience">
+    <div class="section-inner">
+      <div class="cards-head">
+        <div>
+          <div class="section-label">Ce que l’on propose</div>
+          <h2 class="section-title">Une aventure claire, encadrée et <em>personnalisable</em></h2>
+          <p class="section-sub">Le contenu final sera ajusté avec tes vraies informations. Cette structure permet déjà de présenter l’offre de façon professionnelle.</p>
+        </div>
+      </div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icon">🎣</div>
+          <h3 class="card-title">Pêche sportive</h3>
+          <p class="card-text">Sorties orientées sensations, recherche de beaux poissons et expérience active en mer, selon les conditions et le matériel disponible.</p>
+          <div class="card-note">Formules à compléter</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🌊</div>
+          <h3 class="card-title">Cap Masoala</h3>
+          <p class="card-text">Un cadre maritime exceptionnel, entre côte sauvage, horizon ouvert et atmosphère isolée, loin des circuits touristiques classiques.</p>
+          <div class="card-note">Ambodilaitra</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🧭</div>
+          <h3 class="card-title">Accompagnement</h3>
+          <p class="card-text">Organisation locale, conseils pratiques, choix du créneau et préparation de la sortie selon le niveau des participants.</p>
+          <div class="card-note">Sur réservation</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark-feature" id="zones">
+    <div class="section-inner dark-grid">
+      <div>
+        <div class="section-label">Zones & sensations</div>
+        <h2 class="section-title">Des sorties autour du <em>Cap Masoala</em></h2>
+        <p class="section-sub">La page doit rester prudente tant que toutes les informations ne sont pas confirmées. Les zones, espèces et distances seront précisées après validation terrain.</p>
+        <div class="zone-list">
+          <div class="zone"><div class="zone-icon">⚓</div><div><h3>Départ local</h3><p>Point de départ et organisation à confirmer selon accès, météo et logistique du jour.</p></div></div>
+          <div class="zone"><div class="zone-icon">🌊</div><div><h3>Mer ouverte</h3><p>Navigation vers les zones adaptées au niveau des participants et aux conditions en mer.</p></div></div>
+          <div class="zone"><div class="zone-icon">🛟</div><div><h3>Sécurité d’abord</h3><p>Sortie conditionnée par la météo, l’état de la mer et l’équipement disponible.</p></div></div>
+        </div>
+      </div>
+      <div class="dark-img">
+        <img src="assets/peche-masoala-bateau.jpg" alt="Bateau de pêche au Cap Masoala" onerror="this.style.display='none'">
+      </div>
+    </div>
+  </section>
+
+  <section class="section species">
+    <div class="section-inner">
+      <div class="section-label">Espèces possibles</div>
+      <h2 class="section-title">À adapter selon la saison et les <em>observations locales</em></h2>
+      <p class="section-sub">Ces cartes sont prêtes à modifier. On remplacera par les espèces exactes dès que tu me donneras les informations confirmées.</p>
+      <div class="species-grid">
+        <div class="fish"><div class="fish-emoji">🐟</div><div class="fish-name">Thonidés</div><p class="fish-desc">Espèces pélagiques possibles selon zone et saison.</p><span class="fish-tag">À confirmer</span></div>
+        <div class="fish"><div class="fish-emoji">🐠</div><div class="fish-name">Carangues</div><p class="fish-desc">Poissons sportifs recherchés pour leur puissance.</p><span class="fish-tag">À confirmer</span></div>
+        <div class="fish"><div class="fish-emoji">🦈</div><div class="fish-name">Prédateurs</div><p class="fish-desc">Selon matériel, expérience et conditions.</p><span class="fish-tag">À confirmer</span></div>
+        <div class="fish"><div class="fish-emoji">🎣</div><div class="fish-name">Pêche variée</div><p class="fish-desc">Programme ajustable selon objectif de sortie.</p><span class="fish-tag">Flexible</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section journey" id="organisation">
+    <div class="section-inner">
+      <div class="section-label">Organisation</div>
+      <h2 class="section-title">Un parcours simple pour préparer <em>la sortie</em></h2>
+      <p class="section-sub">Le client comprend vite comment ça se passe, même si les prix et les détails seront ajoutés plus tard.</p>
+      <div class="timeline">
+        <div class="step"><div class="step-num">01</div><h3>Demande</h3><p>Le client indique ses dates, son niveau, le nombre de personnes et son objectif.</p></div>
+        <div class="step"><div class="step-num">02</div><h3>Validation</h3><p>On vérifie météo, disponibilité, logistique et faisabilité de la sortie.</p></div>
+        <div class="step"><div class="step-num">03</div><h3>Préparation</h3><p>Confirmation du point de rendez-vous, horaires, matériel et consignes.</p></div>
+        <div class="step"><div class="step-num">04</div><h3>Sortie</h3><p>Départ accompagné pour vivre l’expérience en mer autour du Cap Masoala.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section gallery">
+    <div class="section-inner">
+      <div class="section-label">Galerie</div>
+      <h2 class="section-title">Un aperçu de l’univers <em>Masoala</em></h2>
+      <p class="section-sub">Placeholders prêts pour tes vraies photos : bateau, prises, mer, camp, équipe, paysages.</p>
+      <div class="gallery-grid">
+        <div class="g-item"><img src="assets/peche-gallery-1.jpg" alt="Mer au Cap Masoala" onerror="this.style.display='none'"><div class="g-caption"><strong>Cap Masoala</strong><span>Mer & horizon</span></div></div>
+        <div class="g-item"><img src="assets/peche-gallery-2.jpg" alt="Bateau de pêche" onerror="this.style.display='none'"><div class="g-caption"><strong>Sortie en mer</strong><span>Bateau</span></div></div>
+        <div class="g-item"><img src="assets/peche-gallery-3.jpg" alt="Pêche sportive" onerror="this.style.display='none'"><div class="g-caption"><strong>Pêche</strong><span>Action</span></div></div>
+        <div class="g-item"><img src="assets/peche-gallery-4.jpg" alt="Ambodilaitra" onerror="this.style.display='none'"><div class="g-caption"><strong>Ambodilaitra</strong><span>Base locale</span></div></div>
+        <div class="g-item"><img src="assets/peche-gallery-5.jpg" alt="Nature sauvage" onerror="this.style.display='none'"><div class="g-caption"><strong>Nature</strong><span>Sauvage</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section practical">
+    <div class="section-inner">
+      <div class="section-label">Informations pratiques</div>
+      <h2 class="section-title">Ce qu’il faut prévoir avant de <em>réserver</em></h2>
+      <div class="practical-grid">
+        <div class="info-panel">
+          <h3>À préciser au moment de la demande</h3>
+          <div class="check-list">
+            <div class="check">Dates souhaitées et flexibilité possible.</div>
+            <div class="check">Nombre de participants et niveau d’expérience.</div>
+            <div class="check">Objectif : découverte, pêche sportive, sortie privée, séjour plus long.</div>
+            <div class="check">Besoin de transfert, hébergement ou coordination avec les autres sites.</div>
+          </div>
+        </div>
+        <div class="info-panel">
+          <h3>À confirmer avant départ</h3>
+          <div class="check-list">
+            <div class="check">Météo et conditions de mer.</div>
+            <div class="check">Capacité du bateau et équipement disponible.</div>
+            <div class="check">Horaires de départ et durée exacte.</div>
+            <div class="check">Tarif final selon formule choisie.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ecosystem">
+    <div class="section-inner">
+      <div class="section-label">Masoala Experiences</div>
+      <h2 class="section-title">Une expérience reliée aux autres <em>destinations</em></h2>
+      <p class="section-sub">Pêche Sportive Masoala reste un site indépendant, mais il permet d’accéder facilement aux autres offres de l’écosystème.</p>
+      <div class="site-grid">
+        <a class="site-card" href="https://manga-beach-hotel.netlify.app/" target="_blank" rel="noopener">
+          <div class="site-img"><img src="assets/manga-beach-preview.jpg" alt="Manga Beach Hotel" onerror="this.style.display='none'"></div>
+          <div class="site-body"><div class="site-label">Maroantsetra</div><div class="site-name">Manga Beach Hotel</div><p class="site-desc">Hôtel, restaurant et base principale pour organiser votre séjour.</p><div class="site-link">Visiter le site →</div></div>
+        </a>
+        <a class="site-card" href="https://paradise-valley-ambanizana.netlify.app/" target="_blank" rel="noopener">
+          <div class="site-img"><img src="assets/paradise-valley-preview.jpg" alt="Paradise Valley Lodge" onerror="this.style.display='none'"></div>
+          <div class="site-body"><div class="site-label">Ambanizana</div><div class="site-name">Paradise Valley Lodge</div><p class="site-desc">Lodge nature pour prolonger l’immersion dans la région de Masoala.</p><div class="site-link">Visiter le site →</div></div>
+        </a>
+        <a class="site-card" href="https://masoala-experiences.netlify.app/" target="_blank" rel="noopener">
+          <div class="site-img"><img src="assets/masoala-experiences-preview.jpg" alt="Masoala Experiences" onerror="this.style.display='none'"></div>
+          <div class="site-body"><div class="site-label">Hub</div><div class="site-name">Masoala Experiences</div><p class="site-desc">La page centrale qui présente les trois destinations et les séjours combinés.</p><div class="site-link">Découvrir le hub →</div></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section faq">
+    <div class="section-inner">
+      <div class="section-label">Questions fréquentes</div>
+      <h2 class="section-title">À savoir avant de <em>nous contacter</em></h2>
+      <div class="faq-grid">
+        <div class="faq-item"><h3>Les prix sont-ils affichés ?</h3><p>Pas encore. Les tarifs seront ajoutés après validation des formules, de la durée, du bateau et de la logistique.</p></div>
+        <div class="faq-item"><h3>La sortie dépend-elle de la météo ?</h3><p>Oui. La sécurité reste prioritaire : la sortie peut être adaptée, reportée ou annulée selon l’état de la mer.</p></div>
+        <div class="faq-item"><h3>Faut-il être expérimenté ?</h3><p>Pas forcément. Le programme pourra être adapté au niveau des participants, de la découverte à la sortie plus sportive.</p></div>
+        <div class="faq-item"><h3>Peut-on combiner avec un séjour ?</h3><p>Oui. La logique Masoala Experiences permet de relier pêche, hébergement et nature selon les besoins du client.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div>
+      <h2>Préparer votre sortie<br><em>pêche sportive</em></h2>
+      <p>Envoyez vos dates, le nombre de participants et votre type d’expérience souhaitée. Réponse personnalisée selon disponibilité et conditions.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="mailto:contact@example.com?subject=Demande%20P%C3%AAche%20Sportive%20Masoala" class="btn-primary">Demander par email</a>
+      <a href="https://wa.me/261000000000" target="_blank" rel="noopener" class="btn-outline">WhatsApp</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="ft-top">
+      <div>
+        <div class="ft-brand-name">Pêche Sportive <span>Masoala</span></div>
+        <div class="ft-loc">Ambodilaitra · Cap Masoala · Madagascar</div>
+        <p class="ft-desc">Site dédié aux expériences de pêche sportive au Cap Masoala. Les informations détaillées seront complétées progressivement avec les données terrain confirmées.</p>
+      </div>
+      <div>
+        <div class="ft-col-title">Navigation</div>
+        <div class="ft-links"><a href="index.html">Accueil</a><a href="#experience">Expérience</a><a href="#zones">Zones</a><a href="#organisation">Organisation</a><a href="#contact">Contact</a></div>
+      </div>
+      <div>
+        <div class="ft-col-title">Masoala Experiences</div>
+        <div class="ft-links"><a href="https://manga-beach-hotel.netlify.app/" target="_blank" rel="noopener">Manga Beach Hotel</a><a href="https://paradise-valley-ambanizana.netlify.app/" target="_blank" rel="noopener">Paradise Valley Lodge</a><a href="https://masoala-experiences.netlify.app/" target="_blank" rel="noopener">Masoala Experiences</a></div>
+      </div>
+      <div>
+        <div class="ft-col-title">Contact</div>
+        <div class="ft-links"><a href="mailto:contact@example.com">contact@example.com</a><a href="https://wa.me/261000000000" target="_blank" rel="noopener">WhatsApp</a><a href="#contact">Demander une sortie</a></div>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <div>© 2026 Pêche Sportive Masoala. Tous droits réservés.</div>
+      <div><a href="https://masoala-experiences.netlify.app/" target="_blank" rel="noopener">Une destination Masoala Experiences</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger=document.getElementById('hamburger');
+    const mobileMenu=document.getElementById('mobile-menu');
+    hamburger.addEventListener('click',()=>{
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', mobileMenu.classList.contains('open'));
+      document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';
+    });
+    mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+      hamburger.classList.remove('open');mobileMenu.classList.remove('open');document.body.style.overflow='';
+    }));
+  </script>
+</body>
+</html>
