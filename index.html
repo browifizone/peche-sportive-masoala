@@ -54,30 +54,85 @@
 
     @media(max-width:1050px){nav{padding:1rem 1.5rem}.navlinks,.navcta{display:none}.hamb{display:flex}.hero{grid-template-columns:1fr}.hero-card{display:none}.hero-content{padding:6rem 1.5rem 4rem}.section{padding:4rem 1.5rem}.stats{grid-template-columns:1fr 1fr}.split,.boat-grid,.offer-grid,.dest-grid,.faq-grid{grid-template-columns:1fr}.photo-stack{height:auto;grid-template-columns:1fr}.photo-stack .big{grid-row:auto;height:420px}.photo-stack div{height:240px}.cards{grid-template-columns:1fr 1fr}.catch-grid{grid-template-columns:1fr 1fr}.catch-card.featured{grid-row:auto}.boat-img.wide{grid-column:auto}.ft-top{grid-template-columns:1fr 1fr;padding:3rem 1.5rem}.ft-bottom{padding:1.2rem 1.5rem}}
     @media(max-width:620px){.brand strong{font-size:1.05rem}.hero h1{font-size:3.1rem}.hero-sub{font-size:1.1rem}.btn{width:100%;padding:.95rem 1rem}.stats,.cards,.catch-grid,.mosaic,.ft-top{grid-template-columns:1fr}.mosaic .tile,.mosaic .tile:nth-child(1),.mosaic .tile:nth-child(6){grid-column:auto;grid-row:auto;height:250px}.section-head{display:block}.offer{padding:1.8rem}.sticky-wa{left:14px;right:14px;text-align:center}.ft-top{gap:2rem}}
+
+
+/* === Masoala Experiences inter-sites bar — premium clean v2 === */
+:root{--mx-sitebar-height:34px;}
+html{scroll-padding-top:calc(var(--mx-sitebar-height) + 84px);}
+body{padding-top:var(--mx-sitebar-height);}
+.mx-sitebar{
+  position:fixed;top:0;left:0;right:0;z-index:10000;
+  height:var(--mx-sitebar-height);
+  background:linear-gradient(90deg,rgba(8,20,18,.94),rgba(34,74,50,.94),rgba(13,52,70,.94));
+  border-bottom:1px solid rgba(232,213,163,.18);
+  box-shadow:0 8px 26px rgba(0,0,0,.18);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  font-family:inherit;
+}
+.mx-sitebar-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0 3.5rem;max-width:1440px;margin:0 auto;}
+.mx-sitebar-brand{font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;font-weight:700;color:#f1d89a;white-space:nowrap;opacity:.98;}
+.mx-sitebar-links{display:flex;align-items:center;gap:.25rem;overflow-x:auto;scrollbar-width:none}.mx-sitebar-links::-webkit-scrollbar{display:none}
+.mx-sitebar-links a{font-size:.61rem;letter-spacing:.11em;text-transform:uppercase;color:rgba(255,255,255,.84);padding:.28rem .62rem;border:1px solid rgba(255,255,255,.13);border-radius:999px;white-space:nowrap;transition:background .2s,color .2s,border-color .2s,transform .2s;line-height:1;}
+.mx-sitebar-links a:hover,.mx-sitebar-links a.active{background:rgba(232,213,163,.18);border-color:rgba(232,213,163,.48);color:#fff;transform:translateY(-1px)}
+nav{top:var(--mx-sitebar-height)!important;}
+.mobile{top:var(--mx-sitebar-height)!important;height:calc(100vh - var(--mx-sitebar-height))!important;}
+@media(max-width:900px){:root{--mx-sitebar-height:32px}.mx-sitebar-inner{padding:0 .85rem}.mx-sitebar-brand{font-size:.52rem;letter-spacing:.16em}.mx-sitebar-links a{font-size:.56rem;padding:.26rem .5rem;letter-spacing:.08em}.mx-sitebar-links{gap:.22rem}}
+@media(max-width:560px){:root{--mx-sitebar-height:32px}.mx-sitebar-inner{justify-content:flex-start;gap:.55rem}.mx-sitebar-brand{display:none}.mx-sitebar-links{width:100%;justify-content:flex-start}.mx-sitebar-links a{font-size:.54rem;padding:.25rem .48rem}}
+
   </style>
 </head>
 <body>
-  <div class="sitebar">
-    <a href="https://manga-beach-hotel.vercel.app/" target="_blank">🏨 Manga Beach</a>
-    <a href="https://paradise-valley-lodge.vercel.app/" target="_blank">🌿 Paradise Valley</a>
-    <a href="https://peche-sportive-masoala.vercel.app/" class="active">🎣 Pêche Masoala</a>
-    <a href="https://masoala-experiences.vercel.app/" target="_blank">◉ Masoala Experiences</a>
+
+  <!-- MASOALA EXPERIENCES — BARRE INTER-SITES -->
+  <div class="mx-sitebar" aria-label="Navigation Masoala Experiences">
+    <div class="mx-sitebar-inner">
+      <a class="mx-sitebar-brand" href="https://masoala-experiences.vercel.app/" target="_blank" rel="noopener">Masoala Experiences</a>
+      <div class="mx-sitebar-links">
+        <a href="https://manga-beach-hotel.vercel.app/" target="_blank" rel="noopener">🏨 Manga Beach</a>
+        <a href="https://paradise-valley-lodge.vercel.app/" target="_blank" rel="noopener">🌿 Paradise Valley</a>
+        <a href="https://peche-sportive-masoala.vercel.app/" class="active">🎣 Pêche sportive</a>
+        <a href="https://masoala-experiences.vercel.app/" target="_blank" rel="noopener">◉ Hub</a>
+      </div>
+    </div>
   </div>
 
   <nav>
-    <a class="brand" href="#top"><div class="brand-mark">PS</div><div><strong>Pêche Sportive Masoala</strong><span>Ambodilaitra · Cap Masoala</span></div></a>
-    <div class="navlinks"><a href="#experience">Expérience</a><a href="#prises">Prises</a><a href="#bateau">Bateau</a><a href="#offres">Sorties</a><a href="#contact">Contact</a></div>
-    <a class="navcta" href="https://wa.me/261XXXXXXXXX" target="_blank">WhatsApp</a>
-    <button class="hamb" aria-label="Menu" onclick="document.querySelector('.mobile').classList.add('open')"><span></span><span></span><span></span></button>
+    <a class="brand" href="#top">
+      <div class="brand-mark">PS</div>
+      <div>
+        <strong>Pêche Sportive Masoala</strong>
+        <span>Ambodilaitra · Cap Masoala</span>
+      </div>
+    </a>
+
+    <div class="navlinks">
+      <a href="#experience">Expérience</a>
+      <a href="#prises">Prises</a>
+      <a href="#bateau">Bateau</a>
+      <a href="#offres">Sorties</a>
+    </div>
+
+    <a href="https://wa.me/262639698604?text=Bonjour,%20je%20souhaite%20connaitre%20les%20disponibilités%20pour%20une%20sortie%20de%20pêche%20à%20Masoala" target="_blank" rel="noopener" class="navcta">Demander disponibilités</a>
+
+    <button class="hamb" aria-label="Menu" onclick="document.querySelector('.mobile').classList.add('open')">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
-  <div class="mobile" onclick="this.classList.remove('open')"><a href="#experience">Expérience</a><a href="#prises">Prises</a><a href="#bateau">Bateau</a><a href="#offres">Sorties</a><a class="navcta" href="https://wa.me/261XXXXXXXXX" target="_blank">WhatsApp</a></div>
+
+  <div class="mobile" onclick="this.classList.remove('open')">
+    <a href="#experience">Expérience</a>
+    <a href="#prises">Prises</a>
+    <a href="#bateau">Bateau</a>
+    <a href="#offres">Sorties</a>
+    <a class="navcta" href="https://wa.me/262639698604?text=Bonjour,%20je%20souhaite%20connaitre%20les%20disponibilités%20pour%20une%20sortie%20de%20pêche%20à%20Masoala" target="_blank" rel="noopener">Demander disponibilités</a>
+  </div>
 
   <header class="hero" id="top">
     <div class="hero-content">
       <div class="eyebrow">Expéditions premium</div>
       <h1>Pêche sportive au <em>Cap Masoala</em></h1>
       <p class="hero-sub">Sorties journée et séjours multi-jours en bateau, conçus pour les pêcheurs passionnés qui recherchent des spots sauvages, de vraies sensations et des prises mémorables.</p>
-      <div class="hero-actions"><a href="https://wa.me/261XXXXXXXXX" target="_blank" class="btn btn-primary">Réserver une sortie</a><a href="#prises" class="btn btn-outline">Voir les prises</a></div>
+      <div class="hero-actions"><a href="https://wa.me/262639698604?text=Bonjour,%20je%20souhaite%20connaitre%20les%20disponibilités%20pour%20une%20sortie%20de%20pêche%20à%20Masoala" target="_blank" rel="noopener" class="btn btn-primary">Réserver une sortie</a><a href="#prises" class="btn btn-outline">Voir les prises</a></div>
     </div>
     <div class="hero-card"><img src="assets/images/hero-trophy.jpg" alt="Pêcheur avec grand poisson trophée au Cap Masoala"><div class="hero-card-badge"><strong>Poissons trophées</strong><span>Big game · Jigging · Trolling</span></div></div>
   </header>
@@ -92,7 +147,7 @@
   </section>
 
   <section class="section catches" id="prises">
-    <div class="inner"><div class="section-head"><div><div class="section-label">Prises réelles</div><h2 class="section-title">Des poissons qui parlent <em>d’eux-mêmes</em></h2></div><p class="section-sub">Les images réelles renforcent la crédibilité : gros mérous, poissons tropicaux puissants, carangues et prises de récif. Cette section doit devenir l’un des points forts du site.</p></div>
+    <div class="inner"><div class="section-head"><div><div class="section-label">Prises réelles</div><h2 class="section-title">Des poissons qui parlent <em>d’eux-mêmes</em></h2></div><p class="section-sub">Gros mérous, poissons tropicaux puissants, carangues et prises de récif : des captures réelles pour donner un aperçu concret de l’expérience.</p></div>
       <div class="catch-grid">
         <div class="catch-card featured"><img src="assets/images/catch-smile-grouper.jpg" alt="Pêcheur souriant avec gros poisson"><div class="caption"><strong>Poisson trophée</strong><span>Combat · Puissance · Souvenir</span></div></div>
         <div class="catch-card"><img src="assets/images/catch-double-grouper.jpg" alt="Deux gros poissons sur le bateau"><div class="caption"><strong>Mérous géants</strong><span>Sortie sportive</span></div></div>
@@ -107,17 +162,17 @@
 
   <section class="section boat" id="bateau"><div class="inner"><div class="section-head"><div><div class="section-label">Bateau & zones</div><h2 class="section-title">Navigation dans les eaux <em>sauvages</em></h2></div><p class="section-sub">Le bateau permet d’accéder aux zones du Cap Masoala, aux eaux claires, aux récifs, aux bancs de sable et aux secteurs moins exploités.</p></div><div class="boat-grid"><div class="boat-img wide"><img src="assets/images/aerial-lagoon-boat.jpg" alt="Bateau de pêche dans le lagon du Cap Masoala"></div><div class="boat-img"><img src="assets/images/boat-ilona.jpg" alt="Bateau Ilona en eau turquoise"></div><div class="boat-note"><div><h3>Sorties en bateau</h3><p>Journée complète ou programme multi-jours, selon votre niveau, votre objectif et les conditions de mer.</p></div></div></div></div></section>
 
-  <section class="section offers" id="offres"><div class="inner"><div class="section-head"><div><div class="section-label">Formules</div><h2 class="section-title">Sorties journée ou <em>expéditions</em></h2></div><p class="section-sub">Les tarifs et détails exacts peuvent être ajoutés plus tard. Pour l’instant, ces cartes structurent clairement l’offre.</p></div><div class="offer-grid"><div class="offer"><div class="tag">Découverte</div><h3>Sortie journée</h3><p>Une journée complète pour découvrir les zones accessibles et vivre une vraie session de pêche sportive.</p><ul><li>Bateau inclus</li><li>Départ matin</li><li>Retour fin de journée</li><li>Guide local</li></ul></div><div class="offer"><div class="tag">Passion</div><h3>Séjour multi-jours</h3><p>Pour les pêcheurs passionnés qui veulent optimiser leurs chances et explorer des zones plus éloignées.</p><ul><li>Programme sur mesure</li><li>Plusieurs journées en mer</li><li>Organisation complète</li><li>Objectif trophée</li></ul></div><div class="offer"><div class="tag">Sur mesure</div><h3>Groupe privé</h3><p>Idéal pour amis pêcheurs, petit groupe ou client souhaitant une expérience plus exclusive.</p><ul><li>Rythme adapté</li><li>Zones selon conditions</li><li>Ambiance conviviale</li><li>Contact direct</li></ul></div></div></div></section>
+  <section class="section offers" id="offres"><div class="inner"><div class="section-head"><div><div class="section-label">Formules</div><h2 class="section-title">Sorties journée ou <em>expéditions</em></h2></div><p class="section-sub">Chaque sortie est adaptée aux conditions en mer et au niveau des pêcheurs. Contactez-nous pour organiser votre expérience au Cap Masoala.</p></div><div class="offer-grid"><div class="offer"><div class="tag">Découverte</div><h3>Sortie journée</h3><p>Une journée complète pour découvrir les zones accessibles et vivre une vraie session de pêche sportive.</p><ul><li>Bateau inclus</li><li>Départ matin</li><li>Retour fin de journée</li><li>Guide local</li></ul></div><div class="offer"><div class="tag">Passion</div><h3>Séjour multi-jours</h3><p>Pour les pêcheurs passionnés qui veulent optimiser leurs chances et explorer des zones plus éloignées.</p><ul><li>Programme sur mesure</li><li>Plusieurs journées en mer</li><li>Organisation complète</li><li>Objectif trophée</li></ul></div><div class="offer"><div class="tag">Sur mesure</div><h3>Groupe privé</h3><p>Idéal pour amis pêcheurs, petit groupe ou client souhaitant une expérience plus exclusive.</p><ul><li>Rythme adapté</li><li>Zones selon conditions</li><li>Ambiance conviviale</li><li>Contact direct</li></ul></div></div></div></section>
 
-  <section class="section gallery"><div class="inner"><div class="section-head"><div><div class="section-label">Galerie</div><h2 class="section-title">Mer, bateau, prises et <em>ambiance</em></h2></div><p class="section-sub">Une galerie visuelle forte pour convaincre rapidement les visiteurs.</p></div><div class="mosaic"><div class="tile"><img src="assets/images/aerial-sandbank.jpg" alt="Banc de sable et bateau au Cap Masoala"></div><div class="tile"><img src="assets/images/team-beach.jpg" alt="Équipe et pêcheurs sur la plage"></div><div class="tile"><img src="assets/images/catch-open-mouth.jpg" alt="Gros poisson bouche ouverte"></div><div class="tile"><img src="assets/images/aerial-wide-reef.jpg" alt="Vue aérienne eau turquoise"></div><div class="tile"><img src="assets/images/catch-reef-fish.jpg" alt="Poisson de récif"></div><div class="tile"><img src="assets/images/boat-ilona.jpg" alt="Bateau de pêche turquoise"></div><div class="tile"><img src="assets/images/catch-red-trophy.jpg" alt="Poisson rouge trophée"></div></div></div></section>
+  <section class="section gallery"><div class="inner"><div class="section-head"><div><div class="section-label">Galerie</div><h2 class="section-title">Mer, bateau, prises et <em>ambiance</em></h2></div><p class="section-sub">Un aperçu des sorties en mer, des prises, du bateau et des paysages du Cap Masoala.</p></div><div class="mosaic"><div class="tile"><img src="assets/images/aerial-sandbank.jpg" alt="Banc de sable et bateau au Cap Masoala"></div><div class="tile"><img src="assets/images/team-beach.jpg" alt="Équipe et pêcheurs sur la plage"></div><div class="tile"><img src="assets/images/catch-open-mouth.jpg" alt="Gros poisson bouche ouverte"></div><div class="tile"><img src="assets/images/aerial-wide-reef.jpg" alt="Vue aérienne eau turquoise"></div><div class="tile"><img src="assets/images/catch-reef-fish.jpg" alt="Poisson de récif"></div><div class="tile"><img src="assets/images/boat-ilona.jpg" alt="Bateau de pêche turquoise"></div><div class="tile"><img src="assets/images/catch-red-trophy.jpg" alt="Poisson rouge trophée"></div></div></div></section>
 
-  <section class="section destinations"><div class="inner"><div class="section-head"><div><div class="section-label">Masoala Experiences</div><h2 class="section-title">Compléter votre <em>voyage</em></h2></div><p class="section-sub">Pêche Sportive Masoala reste indépendante, mais connectée aux autres sites pour créer un parcours touristique complet.</p></div><div class="dest-grid"><div class="dest"><h3>Manga Beach Hotel</h3><p>Base confortable à Maroantsetra avant ou après l’expédition.</p><a href="https://manga-beach-hotel.vercel.app/" target="_blank">Visiter le site →</a></div><div class="dest"><h3>Paradise Valley Lodge</h3><p>Séjour nature à Ambanizana, idéal pour prolonger l’immersion.</p><a href="https://paradise-valley-lodge.vercel.app/" target="_blank">Visiter le site →</a></div><div class="dest"><h3>Masoala Experiences</h3><p>La page hub qui relie hôtel, lodge nature et pêche sportive.</p><a href="https://masoala-experiences.vercel.app/" target="_blank">Découvrir le hub →</a></div></div></div></section>
+  <section class="section destinations"><div class="inner"><div class="section-head"><div><div class="section-label">Masoala Experiences</div><h2 class="section-title">Compléter votre <em>voyage</em></h2></div><p class="section-sub">Complétez votre séjour en combinant pêche sportive, hôtel et immersion nature autour du Cap Masoala.</p></div><div class="dest-grid"><div class="dest"><h3>Manga Beach Hotel</h3><p>Base confortable à Maroantsetra avant ou après l’expédition.</p><a href="https://manga-beach-hotel.vercel.app/" target="_blank">Visiter le site →</a></div><div class="dest"><h3>Paradise Valley Lodge</h3><p>Séjour nature à Ambanizana, idéal pour prolonger l’immersion.</p><a href="https://paradise-valley-lodge.vercel.app/" target="_blank">Visiter le site →</a></div><div class="dest"><h3>Masoala Experiences</h3><p>La page hub qui relie hôtel, lodge nature et pêche sportive.</p><a href="https://masoala-experiences.vercel.app/" target="_blank">Découvrir le hub →</a></div></div></div></section>
 
   <section class="section faq"><div class="inner"><div class="section-head"><div><div class="section-label">Infos pratiques</div><h2 class="section-title">Questions <em>fréquentes</em></h2></div></div><div class="faq-grid"><div class="faq-item"><h3>Les sorties sont-elles pour débutants ?</h3><p>Le site vise surtout les pêcheurs passionnés, mais une sortie peut être adaptée selon le niveau du groupe.</p></div><div class="faq-item"><h3>Le bateau est-il inclus ?</h3><p>Oui, l’expérience est organisée autour de sorties en bateau vers les zones de pêche.</p></div><div class="faq-item"><h3>Peut-on partir plusieurs jours ?</h3><p>Oui, des expéditions multi-jours peuvent être organisées selon disponibilité, météo et objectif.</p></div><div class="faq-item"><h3>Comment réserver ?</h3><p>Le plus simple est de passer par WhatsApp pour vérifier les dates, la météo, le nombre de pêcheurs et le programme.</p></div></div></div></section>
 
-  <section class="cta" id="contact"><div class="content"><div class="eyebrow">Réservation</div><h2>Votre prochaine prise commence <em>ici</em></h2><p>Contactez-nous pour organiser votre sortie journée ou votre expédition de plusieurs jours au Cap Masoala.</p><div class="hero-actions"><a href="https://wa.me/261XXXXXXXXX" target="_blank" class="btn btn-primary">Contacter WhatsApp</a><a href="mailto:contact@example.com" class="btn btn-outline">Envoyer un email</a></div></div></section>
+  <section class="cta" id="contact"><div class="content"><div class="eyebrow">Réservation</div><h2>Votre prochaine prise commence <em>ici</em></h2><p>Contactez-nous pour organiser votre sortie journée ou votre expédition de plusieurs jours au Cap Masoala.</p><div class="hero-actions"><a href="https://wa.me/262639698604?text=Bonjour,%20je%20souhaite%20connaitre%20les%20disponibilités%20pour%20une%20sortie%20de%20pêche%20à%20Masoala" target="_blank" rel="noopener" class="btn btn-primary">Demander disponibilités</a><a href="#offres" class="btn btn-outline">Voir les sorties</a></div></div></section>
 
-  <footer><div class="ft-top"><div><div class="ft-brand">Pêche Sportive <span>Masoala</span></div><p class="ft-desc">Expéditions de pêche sportive en bateau autour d’Ambodilaitra et du Cap Masoala. Sorties journée et séjours multi-jours pour pêcheurs passionnés.</p></div><div class="ft-col"><div class="ft-title">Navigation</div><a href="#experience">Expérience</a><a href="#prises">Prises</a><a href="#bateau">Bateau</a><a href="#offres">Sorties</a></div><div class="ft-col"><div class="ft-title">Autres sites</div><a href="https://manga-beach-hotel.vercel.app/" target="_blank">Manga Beach Hotel</a><a href="https://paradise-valley-lodge.vercel.app/" target="_blank">Paradise Valley Lodge</a><a href="https://masoala-experiences.vercel.app/" target="_blank">Masoala Experiences</a></div><div class="ft-col"><div class="ft-title">Contact</div><p>Ambodilaitra · Cap Masoala</p><p>WhatsApp : à compléter</p><p>Email : à compléter</p></div></div><div class="ft-bottom"><span>© 2026 Pêche Sportive Masoala</span><span>Site autonome · Masoala Experiences</span></div></footer>
-  <a class="sticky-wa" href="https://wa.me/261XXXXXXXXX" target="_blank">Réserver · WhatsApp</a>
+  <footer><div class="ft-top"><div><div class="ft-brand">Pêche Sportive <span>Masoala</span></div><p class="ft-desc">Expéditions de pêche sportive en bateau autour d’Ambodilaitra et du Cap Masoala. Sorties journée et séjours multi-jours pour pêcheurs passionnés.</p></div><div class="ft-col"><div class="ft-title">Navigation</div><a href="#experience">Expérience</a><a href="#prises">Prises</a><a href="#bateau">Bateau</a><a href="#offres">Sorties</a></div><div class="ft-col"><div class="ft-title">Autres sites</div><a href="https://manga-beach-hotel.vercel.app/" target="_blank">Manga Beach Hotel</a><a href="https://paradise-valley-lodge.vercel.app/" target="_blank">Paradise Valley Lodge</a><a href="https://masoala-experiences.vercel.app/" target="_blank">Masoala Experiences</a></div><div class="ft-col"><div class="ft-title">Contact</div><p>Ambodilaitra · Cap Masoala</p><p>WhatsApp : +262 639 698 604</p><p>Email : sur demande</p></div></div><div class="ft-bottom"><span>© 2026 Pêche Sportive Masoala</span><span>Ambodilaitra · Cap Masoala</span></div></footer>
+  <a class="sticky-wa" href="https://wa.me/262639698604?text=Bonjour,%20je%20souhaite%20connaitre%20les%20disponibilités%20pour%20une%20sortie%20de%20pêche%20à%20Masoala" target="_blank" rel="noopener">Réserver · WhatsApp</a>
 </body>
 </html>

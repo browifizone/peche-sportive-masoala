@@ -1,5 +1,1 @@
-Pêche Sportive Masoala — page complète V3
-
-Upload sur GitHub : remplace index.html, ajoute assets/images et vercel.json.
-Remplace 261XXXXXXXXX par le vrai numéro WhatsApp.
-Remplace contact@example.com par le vrai email.
+Remplace index.html dans GitHub par ce fichier. Le fichier peche-sportive-masoala.html redirige simplement vers index.html. Ne supprime pas assets/.
