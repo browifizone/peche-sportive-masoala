@@ -79,6 +79,48 @@ nav{top:var(--mx-sitebar-height)!important;}
 @media(max-width:900px){:root{--mx-sitebar-height:32px}.mx-sitebar-inner{padding:0 .85rem}.mx-sitebar-brand{font-size:.52rem;letter-spacing:.16em}.mx-sitebar-links a{font-size:.56rem;padding:.26rem .5rem;letter-spacing:.08em}.mx-sitebar-links{gap:.22rem}}
 @media(max-width:560px){:root{--mx-sitebar-height:32px}.mx-sitebar-inner{justify-content:flex-start;gap:.55rem}.mx-sitebar-brand{display:none}.mx-sitebar-links{width:100%;justify-content:flex-start}.mx-sitebar-links a{font-size:.54rem;padding:.25rem .48rem}}
 
+
+
+    /* === Galerie premium nette + plein écran === */
+    .photo-stack img,
+    .catch-card img,
+    .boat-img img,
+    .mosaic img,
+    .hero-card img{
+      filter:none !important;
+      cursor:zoom-in;
+      image-rendering:auto;
+      backface-visibility:hidden;
+      transform:translateZ(0);
+    }
+    .photo-stack div,
+    .catch-card,
+    .boat-img,
+    .mosaic .tile,
+    .hero-card{background:#061521;}
+    .lightbox-viewer{
+      position:fixed;inset:0;z-index:20000;display:none;align-items:center;justify-content:center;
+      background:rgba(3,10,18,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+      padding:2rem;
+    }
+    .lightbox-viewer.open{display:flex;}
+    .lightbox-img{
+      max-width:min(94vw,1400px);max-height:88vh;width:auto;height:auto;object-fit:contain;
+      box-shadow:0 28px 90px rgba(0,0,0,.45);border:1px solid rgba(213,173,93,.28);
+      cursor:default;background:#061521;
+    }
+    .lightbox-close,.lightbox-prev,.lightbox-next{
+      position:absolute;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.08);
+      color:#fff;cursor:pointer;transition:.2s;display:grid;place-items:center;
+      backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    }
+    .lightbox-close{top:1.2rem;right:1.2rem;width:44px;height:44px;border-radius:50%;font-size:1.6rem;line-height:1;}
+    .lightbox-prev,.lightbox-next{top:50%;transform:translateY(-50%);width:48px;height:64px;font-size:2rem;border-radius:999px;}
+    .lightbox-prev{left:1.2rem}.lightbox-next{right:1.2rem}
+    .lightbox-close:hover,.lightbox-prev:hover,.lightbox-next:hover{background:rgba(213,173,93,.22);border-color:rgba(213,173,93,.55)}
+    .lightbox-caption{position:absolute;left:50%;bottom:1.1rem;transform:translateX(-50%);color:rgba(255,255,255,.72);font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;text-align:center;max-width:80vw;}
+    @media(max-width:620px){.lightbox-viewer{padding:1rem}.lightbox-prev,.lightbox-next{width:40px;height:54px;font-size:1.5rem}.lightbox-caption{display:none}.lightbox-img{max-width:96vw;max-height:82vh}}
+
   </style>
 </head>
 <body>
@@ -174,5 +216,60 @@ nav{top:var(--mx-sitebar-height)!important;}
 
   <footer><div class="ft-top"><div><div class="ft-brand">Pêche Sportive <span>Masoala</span></div><p class="ft-desc">Expéditions de pêche sportive en bateau autour d’Ambodilaitra et du Cap Masoala. Sorties journée et séjours multi-jours pour pêcheurs passionnés.</p></div><div class="ft-col"><div class="ft-title">Navigation</div><a href="#experience">Expérience</a><a href="#prises">Prises</a><a href="#bateau">Bateau</a><a href="#offres">Sorties</a></div><div class="ft-col"><div class="ft-title">Autres sites</div><a href="https://manga-beach-hotel.vercel.app/" target="_blank">Manga Beach Hotel</a><a href="https://paradise-valley-lodge.vercel.app/" target="_blank">Paradise Valley Lodge</a><a href="https://masoala-experiences.vercel.app/" target="_blank">Masoala Experiences</a></div><div class="ft-col"><div class="ft-title">Contact</div><p>Ambodilaitra · Cap Masoala</p><p>WhatsApp : +262 639 698 604</p><p>Email : sur demande</p></div></div><div class="ft-bottom"><span>© 2026 Pêche Sportive Masoala</span><span>Ambodilaitra · Cap Masoala</span></div></footer>
   <a class="sticky-wa" href="https://wa.me/262639698604?text=Bonjour,%20je%20souhaite%20connaitre%20les%20disponibilités%20pour%20une%20sortie%20de%20pêche%20à%20Masoala" target="_blank" rel="noopener">Réserver · WhatsApp</a>
+
+  <div class="lightbox-viewer" id="lightboxViewer" aria-hidden="true">
+    <button class="lightbox-close" type="button" aria-label="Fermer" onclick="closeLightbox()">×</button>
+    <button class="lightbox-prev" type="button" aria-label="Image précédente" onclick="prevLightbox(event)">‹</button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="Image agrandie">
+    <button class="lightbox-next" type="button" aria-label="Image suivante" onclick="nextLightbox(event)">›</button>
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+  <script>
+    const lightboxImages = Array.from(document.querySelectorAll('.hero-card img, .photo-stack img, .catch-card img, .boat-img img, .mosaic img'));
+    let lightboxIndex = 0;
+
+    lightboxImages.forEach((img, index) => {
+      img.setAttribute('loading', index < 3 ? 'eager' : 'lazy');
+      img.addEventListener('click', () => openLightbox(index));
+    });
+
+    function openLightbox(index){
+      lightboxIndex = index;
+      const img = lightboxImages[lightboxIndex];
+      const viewer = document.getElementById('lightboxViewer');
+      document.getElementById('lightboxImg').src = img.currentSrc || img.src;
+      document.getElementById('lightboxImg').alt = img.alt || 'Image Pêche Sportive Masoala';
+      document.getElementById('lightboxCaption').textContent = img.alt || '';
+      viewer.classList.add('open');
+      viewer.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox(){
+      const viewer = document.getElementById('lightboxViewer');
+      viewer.classList.remove('open');
+      viewer.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+    }
+    function nextLightbox(event){
+      if(event) event.stopPropagation();
+      lightboxIndex = (lightboxIndex + 1) % lightboxImages.length;
+      openLightbox(lightboxIndex);
+    }
+    function prevLightbox(event){
+      if(event) event.stopPropagation();
+      lightboxIndex = (lightboxIndex - 1 + lightboxImages.length) % lightboxImages.length;
+      openLightbox(lightboxIndex);
+    }
+    document.getElementById('lightboxViewer').addEventListener('click', (event) => {
+      if(event.target.id === 'lightboxViewer') closeLightbox();
+    });
+    document.addEventListener('keydown', (event) => {
+      if(!document.getElementById('lightboxViewer').classList.contains('open')) return;
+      if(event.key === 'Escape') closeLightbox();
+      if(event.key === 'ArrowRight') nextLightbox(event);
+      if(event.key === 'ArrowLeft') prevLightbox(event);
+    });
+  </script>
+
 </body>
 </html>
