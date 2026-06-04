@@ -1,1 +1,16 @@
-{"cleanUrls": true, "trailingSlash": false}
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/peche-sportive-masoala.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/peche-sportive-masoala",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
+}

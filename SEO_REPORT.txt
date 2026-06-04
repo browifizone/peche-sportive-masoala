@@ -1,0 +1,20 @@
+Pêche Sportive Masoala — SEO ready
+Généré le 2026-06-04
+
+Domaine utilisé dans le pack : https://mangabeachfishing-masoala.com
+
+Modifications principales :
+- Head SEO reconstruit proprement : title, meta description, robots, canonical, Open Graph et Twitter Card.
+- Données structurées JSON-LD ajoutées avec WebSite, Organization, LocalBusiness/SportsActivityLocation, Service, WebPage, BreadcrumbList et FAQPage.
+- Sitemap simplifié avec une seule URL canonique pour éviter le contenu dupliqué.
+- robots.txt corrigé avec le sitemap du domaine principal.
+- Ancienne page peche-sportive-masoala.html transformée en redirection/noindex vers l’accueil.
+- Redirections Vercel ajoutées dans vercel.json.
+- Textes de l’accueil renforcés autour de : pêche sportive Masoala, pêche au gros, baie d’Antongil, bateau Ilona, Maroantsetra et séjours combinés.
+- Section FAQ visible ajoutée pour renforcer le contenu SEO.
+- Images optimisées avec loading/decoding et alt conservés/améliorés.
+
+Points à confirmer avant mise en ligne :
+- Le vrai domaine final. Si ce n’est pas https://mangabeachfishing-masoala.com, remplacer le domaine dans index.html, robots.txt et sitemap.xml.
+- Numéro principal SEO confirmé : +262 639 698 604. Le footer, les boutons WhatsApp et les données structurées utilisent désormais ce numéro.
+- L’ID Google Analytics est encore G-XXXXXXXXXX si tu souhaites suivre les visites. Remplacer par ton vrai ID ou supprimer le script.
